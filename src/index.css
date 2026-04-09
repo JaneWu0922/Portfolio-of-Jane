@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-neon-pink: #ff00ff;
+  --color-neon-purple: #bc13fe;
+  --color-neon-magenta: #ff0090;
+  --color-cyber-bg: #050505;
+  --color-cyber-card: #0f0f0f;
+}
+
+@layer base {
+  body {
+    @apply bg-cyber-bg text-gray-100 font-sans selection:bg-neon-pink selection:text-black;
+  }
+}
+
+@layer utilities {
+  .neon-text-pink {
+    text-shadow: 0 0 5px rgba(255, 0, 255, 0.5), 0 0 10px rgba(255, 0, 255, 0.3);
+  }
+  .neon-text-purple {
+    text-shadow: 0 0 5px rgba(188, 19, 254, 0.5), 0 0 10px rgba(188, 19, 254, 0.3);
+  }
+  .neon-border-pink {
+    box-shadow: 0 0 5px rgba(255, 0, 255, 0.5), inset 0 0 5px rgba(255, 0, 255, 0.2);
+    border: 1px solid rgba(255, 0, 255, 0.5);
+  }
+  .neon-border-purple {
+    box-shadow: 0 0 5px rgba(188, 19, 254, 0.5), inset 0 0 5px rgba(188, 19, 254, 0.2);
+    border: 1px solid rgba(188, 19, 254, 0.5);
+  }
+  .cyber-grid {
+    background-image: linear-gradient(rgba(255, 0, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 0, 255, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+  .scanline {
+    width: 100%;
+    height: 100px;
+    z-index: 10;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(255, 0, 255, 0.05) 50%, rgba(0, 0, 0, 0) 100%);
+    opacity: 0.1;
+    position: absolute;
+    bottom: 100%;
+    animation: scanline 10s linear infinite;
+  }
+}
+
+@keyframes scanline {
+  0% { bottom: 100%; }
+  100% { bottom: -100px; }
+}
+
